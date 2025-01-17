@@ -1,9 +1,22 @@
-document.addEventListener("keydown", function(event) {
+document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.altKey) {
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            let currentUrl = tabs[0].url;
-            let newUrl = currentUrl + "details/experience";
-            chrome.tabs.update(tabs[0].id, {url: newUrl});
+        event.preventDefault();
+        const newUrl = window.location.href + "details/experience";
+        window.location.href = newUrl;
+    }
+});
+
+
+// Polyfill para compatibilidad entre navegadores
+if (typeof browser === "undefined") {
+    var browser = chrome;
+}
+
+// Listener para atajo de teclado
+document.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && event.shiftKey) {
+        browser.tabs.executeScript({
+            file: "highlightNet.js"
         });
     }
 });
