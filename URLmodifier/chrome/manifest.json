@@ -23,6 +23,12 @@
                 "default": "Ctrl+Shift+2"
             },
             "description": "Highlight '.net' on the current page"
+        },
+        "highlightJava": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+3"
+            },
+            "description": "Highlight 'Java' on the current page"
         }
     },
     "host_permissions": [
