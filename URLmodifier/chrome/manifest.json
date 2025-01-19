@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "URL Modifier",
+    "version": "1.0",
+    "description": "Appends 'details/experience' to the current URL and navigates when Ctrl + Shift + 1 is pressed.",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "commands": {
+        "navigateToDetails": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+1"
+            },
+            "description": "Navigate to details/experience"
+        },
+        "highlightDotNet": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+2"
+            },
+            "description": "Highlight '.net' on the current page"
+        }
+    },
+    "host_permissions": [
+        "<all_urls>"
+    ]
+}
+  
