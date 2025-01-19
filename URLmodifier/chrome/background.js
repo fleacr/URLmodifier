@@ -32,7 +32,18 @@ chrome.commands.onCommand.addListener((command) => {
                   });
                 }
               });  
-        break; 
+        break;
+
+        case "highlightPython":
+          chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+              if (tabs[0]) {
+                chrome.scripting.executeScript({
+                  target: { tabId: tabs[0].id },
+                  func: highlightPythonWords
+                });
+              }
+            });  
+      break; 
 
         default:
         break;
@@ -70,6 +81,29 @@ chrome.commands.onCommand.addListener((command) => {
   function highlightJavaWords() {
     
     const regex = /java/gi; // Busca "java" (insensible a mayúsculas).
+    
+    const body = document.body;
+  
+    function replaceText(node) {
+      const text = node.nodeValue;
+      const span = document.createElement("span");
+      span.innerHTML = text.replace(regex, (match) => `<mark>${match}</mark>`);
+      node.replaceWith(span);
+    }
+  
+    function traverseNodes(node) {
+      if (node.nodeType === Node.TEXT_NODE && regex.test(node.nodeValue)) {
+        replaceText(node);
+      } else if (node.nodeType === Node.ELEMENT_NODE && node.childNodes) {
+        Array.from(node.childNodes).forEach(traverseNodes);
+      }
+    }
+    traverseNodes(body);
+  }
+
+  function highlightPythonWords() {
+    
+    const regex = /python/gi; // Busca "aws" (insensible a mayúsculas).
     
     const body = document.body;
   
