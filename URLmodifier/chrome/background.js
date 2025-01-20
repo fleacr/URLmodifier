@@ -43,7 +43,18 @@ chrome.commands.onCommand.addListener((command) => {
                 });
               }
             });  
-      break; 
+      break;
+
+      case "removeHighlights":
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+          if (tabs[0]) {
+            chrome.scripting.executeScript({
+              target: { tabId: tabs[0].id },
+              func: removeHighlights
+            });
+          }
+        });  
+    break; 
 
         default:
         break;
@@ -123,3 +134,17 @@ chrome.commands.onCommand.addListener((command) => {
     }
     traverseNodes(body);
   }
+
+
+  function removeHighlights() {
+    const marks = document.querySelectorAll("mark"); // Selecciona todos los elementos <mark>.
+  
+    marks.forEach((mark) => {
+      const parent = mark.parentNode;
+      if (parent) {
+        // Reemplaza el <mark> con su contenido de texto.
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+      }
+    });
+  }
+  

@@ -8,6 +8,10 @@
         "storage",
         "scripting"
     ],
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "extension.png"
+      },
     "background": {
         "service_worker": "background.js"
     },
@@ -31,11 +35,11 @@
             "description": "Highlight 'Java' on the current page"
         }
         ,
-        "highlightPython": {
+        "removeHighlights": {
             "suggested_key": {
                 "default": "Ctrl+Shift+4"
             },
-            "description": "Highlight 'AWS' on the current page"
+            "description": "Remove highlights on the current page"
         }
     },
     "host_permissions": [
