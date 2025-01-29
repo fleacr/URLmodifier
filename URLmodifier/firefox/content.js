@@ -1,0 +1,1 @@
+document.body.innerHTML = document.body.innerHTML.replace(/(\.net)/gi, '<span style="background-color: yellow;">$1</span>');

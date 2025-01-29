@@ -1,0 +1,20 @@
+{
+  "name": "firefox-extension",
+  "version": "1.0.0",
+  "description": "A Firefox extension to modify URLs and highlight text.",
+  "main": "src/background.js",
+  "scripts": {
+    "build": "echo 'Building the extension...'",
+    "test": "echo 'Running tests...'"
+  },
+  "keywords": [
+    "firefox",
+    "extension",
+    "highlight",
+    "url"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
