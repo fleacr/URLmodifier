@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "URL Modifier and Highlighter",
     "version": "1.0",
     "description": "Adds text to the current URL and highlights .net words on the page.",
@@ -18,13 +18,13 @@
       }
     ],
     "commands": {
-      "add-text-to-url": {
+      "navigateToDetails": {
         "suggested_key": {
           "default": "Ctrl+Shift+1"
         },
         "description": "Add 'details/experience' to the current URL"
       },
-      "highlight-dotnet": {
+      "highlightDotNet": {
         "suggested_key": {
           "default": "Ctrl+Shift+2"
         },
